@@ -69,6 +69,8 @@ public class ComparableAndComparator {
 			}
 		});
 		System.out.println("Sort By Name: " + empList);
+		
+		
 
 	}
 

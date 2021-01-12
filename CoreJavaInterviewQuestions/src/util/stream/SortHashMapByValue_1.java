@@ -39,7 +39,8 @@ public class SortHashMapByValue_1 {
 		/**
 		 * Now create a new LinkedHashMap and copy the sorted elements into that. Since
 		 * LinkedHashMap guarantees the insertion order of mappings. We cannot use
-		 * TreeMap to sort values because TreeMap sorts elements by Keys
+		 * TreeMap to sort values because TreeMap sorts elements by Keys in natural
+		 * sorting order
 		 */
 		Map<Integer, String> sortedMap = new LinkedHashMap<Integer, String>();
 		Map<Integer, String> sortedTreeMap = new TreeMap<Integer, String>();

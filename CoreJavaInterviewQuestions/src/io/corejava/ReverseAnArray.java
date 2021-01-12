@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class ReverseAnArray
 {
 	
-   public static void main(String args[])
+   @SuppressWarnings("resource")
+public static void main(String args[])
    {
 	int counter, i=0, j=0, temp;
 	int number[] = new int[100];

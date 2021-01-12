@@ -23,7 +23,7 @@ public class DuplicateCharacterCount {
 				map.put(c, 1);
 			}
 		}
-
+		System.out.println(map);
 		int maxValueInMap = (Collections.max(map.values()));
 		Iterator<Entry<Character, Integer>> itr = map.entrySet().iterator();
 		while (itr.hasNext()) {

@@ -15,8 +15,9 @@ public class DuplicateCharactersInString {
 
 		System.out.println("Enter the input String value: ");
 
-		String str = sc.next();
-
+		String str = sc.nextLine();
+		//str = str.replace("//s", "");
+		//System.out.println(str);
 		char[] charArray = str.toCharArray();
 
 		for (int i = 0; i < str.length(); i++) {

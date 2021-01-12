@@ -21,14 +21,17 @@ public class OtherStreamOperations {
 
 		/** Collect top 3 elements */
 		List<String> top3 = vehicles.stream().limit(3).collect(Collectors.toList());
-		System.out.println(top3);
+		System.out.println("Collect top 3 elements: " + top3);
 
 		/** Skip top 3 */
 		List<String> top3Skipped = vehicles.stream().skip(3).collect(Collectors.toList());
-		System.out.println(top3Skipped);
+		System.out.println("Skip top 3: " + top3Skipped);
 
+		
+		int[] n = {3,5,2,54,6,5,2,2,5,6,8,6,5};
+		Arrays.stream(n).forEach(System.out::println);
+		
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
 		/** Min number value */
 		int min = numbers.stream().min((val1, val2) -> val1.compareTo(val2)).get();
 		System.out.println("Minumum number: " + min);
@@ -41,7 +44,6 @@ public class OtherStreamOperations {
 
 		max = numbers.stream().max(Comparator.comparing(Integer::valueOf)).get();
 		System.out.println("Maximum number: " + max);
-
 		/** reduce operation */
 		/**
 		 * sum(), min(), max(), count() etc. are some examples of reduce operations.
@@ -62,5 +64,4 @@ public class OtherStreamOperations {
 		System.out.println(Arrays.toString(array));
 
 	}
-
 }
