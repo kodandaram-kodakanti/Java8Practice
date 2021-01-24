@@ -161,12 +161,14 @@ public class GroupByExample {
 				new Emp("KodandaRamu K", 29, "Technical Lead", "Hyderabad", "Telangana"),
 				new Emp("Mahendra", 33, "Testing", "Mysore", "Karnataka"),
 				new Emp("Shahrukh", 28, "Designing", "Chennai", "Tamilnadu"),
-				new Emp("Nimith", 31, "Designing", "Bangalore", "Karnataka"),
+				new Emp("Akhil", 31, "Designing", "Bangalore", "Karnataka"),
 				new Emp("Lahari", 32, "Business Analyst", "Vizag", "Andhra Pradesh"),
 				new Emp("Sathya", 29, "Information Technolgy", "Bangalore", "Karnataka"),
 				new Emp("Ram K K", 28, "Information Technolgy", "Bangalore", "Karnataka"),
 				new Emp("Shahrukh", 28, "Designing", "Chennai", "Tamilnadu"),
-				new Emp("Tashu", 30, "IT Delevopment", "Amaravathi", "Andhra Pradesh"));
+				new Emp("KodandaRamu K", 30, "Module Lead", "Bangalore", "Karnataka"),
+				new Emp("Tashu", 30, "IT Delevopment", "Amaravathi", "Andhra Pradesh"),
+				new Emp("Ram K K", 29, "Information Technolgy", "Bangalore", "Karnataka"));
 
 		/** GroupBy State **/
 		Map<String, List<Emp>> groupingByState = empList.stream().collect(Collectors.groupingBy(Emp::getState));
@@ -239,6 +241,13 @@ public class GroupByExample {
 		IntSummaryStatistics stats = empList.stream().collect(Collectors.summarizingInt(Emp::getAge));
 		System.out.println("Age Statistics: " + stats);
 
+		/** GroupBy Employee name with Highest Age **/
+		Map<String, Emp> groupByEmpNameWithMaxAge = empList.stream()
+				.collect(Collectors.groupingBy(Emp::getName, Collectors.maxBy(Comparator.comparing(Emp::getAge))))
+				.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().get()));
+
+		System.out.println("groupByEmpNameWithMaxAge: " + groupByEmpNameWithMaxAge);
+		System.out.println("Size: " + groupByEmpNameWithMaxAge.size());
 	}
 
 }
