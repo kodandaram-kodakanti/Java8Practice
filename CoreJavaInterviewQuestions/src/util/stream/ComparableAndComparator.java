@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Employee1 {
 
@@ -39,7 +40,7 @@ class Employee1 {
 	public String toString() {
 		return "Employee1 [id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]";
 	}
-	
+
 }
 
 public class ComparableAndComparator {
@@ -61,6 +62,10 @@ public class ComparableAndComparator {
 		});
 		System.out.println("Sort By Age: " + empList);
 
+		/** In Java8, sort by Age **/
+		List<Employee1> empList1 = empList.stream().sorted(Comparator.comparing(Employee1::getAge))
+				.collect(Collectors.toList());
+		System.out.println("Sort By Age(Java-8): " + empList1);
 		/** Sort By Name **/
 		Collections.sort(empList, new Comparator<Employee1>() {
 			@Override
@@ -70,6 +75,10 @@ public class ComparableAndComparator {
 		});
 		System.out.println("Sort By Name: " + empList);
 		
+		/** In Java8, sort by Name **/
+		List<Employee1> empList21 = empList.stream().sorted(Comparator.comparing(Employee1::getName)).collect(Collectors.toList());
+		System.out.println("Sort By Name: " + empList21);
+
 	}
 
 }
