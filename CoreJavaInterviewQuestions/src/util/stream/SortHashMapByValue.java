@@ -10,6 +10,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+/***
+ * 
+ * https://javarevisited.blogspot.com/2017/09/java-8-sorting-hashmap-by-values-in.html#axzz6gzKqej4R
+ **/
+
 public class SortHashMapByValue {
 
 	public static void main(String[] args) {
@@ -21,11 +26,10 @@ public class SortHashMapByValue {
 		budget.put("utility", 130);
 		budget.put("rent", 1150);
 		budget.put("miscellneous", 90);
+		budget.put("clothes_1", 120);
 		budget.put("miscellneous_1", 90);
 
 		System.out.println("map before sorting: " + budget);
-
-		
 
 		/** In Java7 ***/
 		/** Getting the EntrySet into List **/
@@ -52,13 +56,23 @@ public class SortHashMapByValue {
 		}
 
 		System.out.println("Sorted Map Key-Values are: " + sortedMap);
-		
-		
-		/**In Java-8 ***/
+
+		/** In Java-8 ***/
 		Map<Object, Object> sortedMap1 = budget.entrySet().stream().sorted(Entry.comparingByValue())
 				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (a, b) -> b, LinkedHashMap::new));
 		System.out.println("Sorted Map Key-Values are: " + sortedMap1);
-		
+
+		Map<String, Integer> sortedMap2 = budget.entrySet().stream()
+				.sorted((entry1, entry2) -> entry1.getValue().compareTo(entry2.getValue()))
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+
+		System.out.println("Sorted Map Key-Values are: " + sortedMap2);
+
+		Map<String, Integer> sortedMap3 = budget.entrySet().stream()
+				.sorted((entry1, entry2) -> entry1.getValue() - entry2.getValue())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+
+		System.out.println("Sorted Map Key-Values are: " + sortedMap3);
 	}
 
 }

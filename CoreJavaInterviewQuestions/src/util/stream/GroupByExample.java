@@ -155,6 +155,7 @@ class Emp {
 public class GroupByExample {
 
 	public static void main(String[] args) {
+		
 
 		List<Emp> empList = Arrays.asList(new Emp("Ram K K", 28, "Information Technolgy", "Bangalore", "Karnataka"),
 				new Emp("Akhil", 26, "Business Analyst", "Mysore", "Karnataka"),
@@ -248,6 +249,7 @@ public class GroupByExample {
 
 		System.out.println("groupByEmpNameWithMaxAge: " + groupByEmpNameWithMaxAge);
 		System.out.println("Size: " + groupByEmpNameWithMaxAge.size());
+		
 	}
 
 }

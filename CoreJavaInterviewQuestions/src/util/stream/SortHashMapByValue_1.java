@@ -61,5 +61,10 @@ public class SortHashMapByValue_1 {
 		Map<Integer, String> sortedMap1 = map.entrySet().stream().sorted(Entry.comparingByValue())
 				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (val1, val2) -> val2, LinkedHashMap::new));
 		System.out.println("Sorted Map Key-Values are: " + sortedMap1);
+
+		Map<Integer, String> sortedMap2 = map.entrySet().stream().sorted((entry1, entry2) -> entry1.getValue().compareTo(entry2.getValue()))
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+		
+		System.out.println("Sorted Map Key-Values are: " + sortedMap2);
 	}
 }

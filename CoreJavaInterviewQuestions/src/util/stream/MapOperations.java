@@ -28,6 +28,9 @@ public class MapOperations {
 		multipliedList = numbers.stream().map(number -> number * 3).collect(Collectors.toList());
 		System.out.println("Before Multiplication: " + numbers);
 		System.out.println("After Multiplication: " + multipliedList);
+
+		String name1 = names.stream().filter(name -> name.length() > 4 && name.contains("s")).findFirst().get();
+		System.out.println("Name with more than 4 character length and contains 's': " + name1);
 	}
 
 }

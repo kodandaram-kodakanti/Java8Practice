@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 interface InterfaceWithDefaultMethods {
+	
 	public default void print() {
 		System.out.println("Default method from Interface!!");
 	}
