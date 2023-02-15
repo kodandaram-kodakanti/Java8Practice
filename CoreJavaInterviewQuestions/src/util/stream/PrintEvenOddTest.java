@@ -20,5 +20,4 @@ public class PrintEvenOddTest {
 		IntStream.rangeClosed(1, 10).forEach(System.out::println);
 
 	}
-
 }
